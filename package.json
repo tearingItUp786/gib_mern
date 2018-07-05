@@ -1,0 +1,19 @@
+{
+  "name": "gib_mern",
+  "version": "1.0.0",
+  "description": "A test project for the warehouse I used to work.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tearingItUp786/gib_mern.git"
+  },
+  "author": "Taranveer Bains",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tearingItUp786/gib_mern/issues"
+  },
+  "homepage": "https://github.com/tearingItUp786/gib_mern#readme"
+}
