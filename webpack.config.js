@@ -1,31 +1,40 @@
 const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+const StartServerPlugin = require('start-server-webpack-plugin');
 
-const sideConfig = aSide => require(`./build-utils/webpack.${aSide}`)(aSide);
-
-module.exports = ({ mode, side } = { mode: 'development', side: 'back' }) =>
-  webpackMerge(
-    {
-      mode,
-      module: {
-        rules: [
+module.exports = {
+  entry: ['webpack/hot/poll?1000', './server/index'],
+  watch: true,
+  devtool: 'sourcemap',
+  target: 'node',
+  node: {
+    __filename: true,
+    __dirname: true
+  },
+  externals: [nodeExternals({ whitelist: ['webpack/hot/poll?1000'] })],
+  module: {
+    rules: [
+      {
+        test: /\.js?$/,
+        use: [
           {
-            enforce: 'pre',
-            test: /.jsx?$/,
-            use: ['eslint-loader'],
-            exclude: /node_modules/
-          },
-          {
-            test: /.jsx?$/,
-            use: 'babel-loader',
-            exclude: /node_modules/
+            loader: 'babel-loader'
           }
-        ]
-      },
-      output: {
-        filename: 'bundle.js'
-      },
-      plugins: [new webpack.ProgressPlugin()]
-    },
-    sideConfig(side)
-  );
+        ],
+        exclude: /node_modules/
+      }
+    ]
+  },
+  plugins: [
+    new StartServerPlugin('server.js'),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': { BUILD_TARGET: JSON.stringify('server') }
+    }),
+    new webpack.BannerPlugin({ banner: 'require("source-map-support").install();', raw: true, entryOnly: false })
+  ],
+  output: { path: path.join(__dirname, 'dist'), filename: 'server.js' }
+};

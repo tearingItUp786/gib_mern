@@ -1,15 +1,17 @@
-import express from 'express';
+import http from 'http';
+import app from './server';
 
-require('dotenv').config();
+const server = http.createServer(app);
+let currentApp = app;
 
-const { PORT } = process.env;
-
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('Hello worlds');
+server.listen(3000, () => {
+  console.log('Server listening on port 3000');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+if (module.hot) {
+  module.hot.accept(['./server'], () => {
+    server.removeListener('request', currentApp);
+    server.on('request', app);
+    currentApp = app;
+  });
+}
