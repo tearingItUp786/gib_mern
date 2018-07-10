@@ -4,12 +4,16 @@
   "description": "A test project for the warehouse I used to work.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./dist/bundle-backend.js",
     "dboff": "killall mongod",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "webpack": "webpack",
-    "webpack:back": "npm run webpack -- --env.side back"
+    "webpack-dev-server": "webpack-dev-server",
+    "prod": "npm run webpack -- --env.mode production",
+    "dev": "npm run webpack -- --env.mode development --watch",
+    "dev:back": "npm run dev -- --env.side back",
+    "dev:server": "nodemon ./dist/bundle-backend.js"
   },
   "repository": {
     "type": "git",

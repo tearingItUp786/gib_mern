@@ -17,7 +17,8 @@ module.exports = ({ mode, side } = { mode: 'development', side: 'back' }) =>
           },
           {
             test: /.jsx?$/,
-            use: 'babel-loader'
+            use: 'babel-loader',
+            exclude: /node_modules/
           }
         ]
       },
