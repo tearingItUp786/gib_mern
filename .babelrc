@@ -1,0 +1,44 @@
+{
+  "presets": [
+    "es2015",
+    "stage-2",
+    "flow",
+    "react",
+    "env",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": "last 2 versions"
+        },
+        "loose": false,
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ],
+    "babel-plugin-syntax-dynamic-import",
+    "babel-plugin-dynamic-import-webpack",
+    "babel-plugin-transform-class-properties",
+    "transform-object-rest-spread",
+    "babel-plugin-transform-async-to-generator",
+    "babel-plugin-styled-components"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "server": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}
