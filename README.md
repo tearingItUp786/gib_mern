@@ -12,8 +12,8 @@ To get started run
 ## Backend
 
 - [x] Mockup DB Schema
-- [] Mock up routes
-- [] Configure Webpack to handle server
-- [] Create DB Schmea in Mongoose
-- [] Integrate Auth
-- [] Set up API endpoints
+- [ ] Mock up routes
+- [ ] Configure Webpack to handle server
+- [ ] Create DB Schmea in Mongoose
+- [ ] Integrate Auth
+- [ ] Set up API endpoints
