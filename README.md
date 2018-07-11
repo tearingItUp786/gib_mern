@@ -1,3 +1,19 @@
 # gib_mern
 
-A test project for the warehouse I used to work. Also my first ever MERN app!
+A test project for the warehouse I used to work. Also my first ever MERN app!  
+:smiley:  
+To get started run
+
+```javascript
+  npm install
+  npm run dev:server
+```
+
+## Backend
+
+- [x] Mockup DB Schema
+- [] Mock up routes
+- [] Configure Webpack to handle server
+- [] Create DB Schmea in Mongoose
+- [] Integrate Auth
+- [] Set up API endpoints
