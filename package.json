@@ -4,12 +4,16 @@
   "description": "A test project for the warehouse I used to work.",
   "main": "index.js",
   "scripts": {
+    "start": "node --require dotenv/config dist/server.js",
     "dboff": "killall mongod",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"server/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "webpack": "webpack",
     "clean": "shx rm -rf ./dist",
+    "prod": "npm run webpack -- --env.mode production",
+    "prod:server": "npm run prod -- --env.side server",
     "dev": "npm run webpack -- --env.mode development",
+    "dev:client": "npm run dev -- --env.side client",
     "dev:server": "npm run dev -- --env.side server"
   },
   "repository": {
@@ -39,7 +43,6 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "dotenv-webpack": "^1.5.7",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
@@ -59,6 +62,7 @@
   "dependencies": {
     "babel-preset-stage-0": "^6.24.1",
     "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
     "express": "^4.16.3",
     "start-server-webpack-plugin": "^2.2.5",
     "webpack": "^4.15.1",

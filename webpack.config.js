@@ -1,12 +1,12 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-
+const Dotenv = require('dotenv-webpack');
 // if you go into the build-utils for webpack.server, you will see that what is returned from export
 // is a function and therefore, we call that function that returns an object that webpack can use
 // we pass along the side parameter because that's just good functional manners :)
-const sideConfig = side => require(`./build-utils/webpack.${side}`)(side);
+const sideConfig = ({ side, mode }) => require(`./build-utils/webpack.${side}`)(mode);
 
-module.exports = ({ mode, side } = { mode: 'production', side: 'server' }) =>
+module.exports = ({ mode, side } = { mode: 'development', side: 'client' }) =>
   webpackMerge(
     {
       mode,
@@ -19,7 +19,7 @@ module.exports = ({ mode, side } = { mode: 'production', side: 'server' }) =>
           }
         ]
       },
-      plugins: [new webpack.ProgressPlugin()]
+      plugins: [new Dotenv(), new webpack.ProgressPlugin()]
     },
-    sideConfig(side)
+    sideConfig({ side, mode })
   );

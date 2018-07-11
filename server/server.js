@@ -1,9 +1,8 @@
 import express from 'express';
 
 const app = express();
-
 app.get('/', (req, res) => {
-  res.send('Hello Taran');
+  res.send(`Hello Taran`);
 });
 
 export default app;
