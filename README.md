@@ -14,6 +14,7 @@ To get started run
 - [x] Mockup DB Schema
 - [ ] Mock up routes
 - [ ] Configure Webpack to handle server
-- [ ] Create DB Schmea in Mongoose
+- [x] Create DB Schmea in Mongoose
+- [ ] Create DB Controllers
 - [ ] Integrate Auth
 - [ ] Set up API endpoints
