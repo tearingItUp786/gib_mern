@@ -61,14 +61,16 @@ const findById = model => (req, res, next, id) =>
     })
     .catch(err => next(err));
 
-function generateContollers(model) {
-  return {
+function generateContollers(model, extraControllers = {}) {
+  const own = {
     getOne: getOne(),
     getAll: getAll(model),
     addOne: addOne(model),
     deleteOne: deleteOne(),
     findById: findById(model)
   };
+
+  return { ...own, ...extraControllers };
 }
 
 export default generateContollers;
