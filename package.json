@@ -68,6 +68,7 @@
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "express": "^4.16.3",
+    "lodash": "^4.17.10",
     "mongoose": "^5.2.3",
     "start-server-webpack-plugin": "^2.2.5",
     "webpack": "^4.15.1",

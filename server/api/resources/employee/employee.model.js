@@ -1,40 +1,27 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 
 const employeeSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    unique: true,
-    required: [true, 'Employee must have an ID']
+  username: {
+    type: mongoose.Schema.Types.String,
+    unqiue: true,
+    required: true,
+    dropDups: true
   },
   name: {
     fname: {
-      type: String,
+      type: mongoose.Schema.Types.String,
       required: true
     },
-    lName: {
-      type: String,
+    lname: {
+      type: mongoose.Schema.Types.String,
       required: true
     }
-  },
-  passwordHash: {
-    required: true,
-    type: String
   }
+  // passwordHash: {
+  //   required: true,
+  //   type: String
+  // }
 });
-
-employeeSchema.methods = {
-  authenticate(plainTextPass) {
-    return bcrypt.compareSync(plainTextPass, this.password);
-  },
-  hashPassword(plainTextPass) {
-    if (!plainTextPass) {
-      throw new Error('Could not save User');
-    }
-
-    const salt = bcrypt.genSaltSync(10);
-    return bcrypt.hashSync(plainTextPass, salt);
-  }
-};
 
 export default mongoose.model('Employee', employeeSchema);

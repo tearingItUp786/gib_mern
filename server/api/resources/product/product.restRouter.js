@@ -13,6 +13,7 @@ productRouter
 productRouter
   .route('/:id')
   .get(productController.getOne)
+  .put(productController.updateOne)
   .delete(productController.deleteOne);
 
 export default productRouter;

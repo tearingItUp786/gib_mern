@@ -2,17 +2,24 @@
  * Basic Controllers that each Model will need.
  * Find one, get one, get all, add one, delete one, update one
  */
-const basicControllers = {
-  getOne(docToSend) {
-    return Promise.resolve(docToSend);
-  },
+import merge from 'lodash/merge';
 
+const basicControllers = {
   getAll(model) {
     return model.find({});
   },
 
+  getOne(docToSend) {
+    return Promise.resolve(docToSend);
+  },
+
   addOne(model, docToAdd) {
     return model.create(docToAdd);
+  },
+
+  updateOne(docToUpdate, update) {
+    merge(docToUpdate, update);
+    return docToUpdate.save();
   },
 
   deleteOne(docToRemove) {
@@ -42,6 +49,12 @@ const addOne = model => (req, res, next) =>
     .then(doc => res.status(201).json(doc))
     .catch(err => next(err));
 
+const updateOne = () => (req, res, next) =>
+  basicControllers
+    .updateOne(req.docFromId, req.body)
+    .then(doc => res.status(201).json(doc))
+    .catch(error => next(error));
+
 const deleteOne = () => (req, res, next) =>
   basicControllers
     .deleteOne(req.docFromId)
@@ -63,11 +76,12 @@ const findById = model => (req, res, next, id) =>
 
 function generateContollers(model, extraControllers = {}) {
   const own = {
-    getOne: getOne(),
+    findById: findById(model),
     getAll: getAll(model),
     addOne: addOne(model),
+    updateOne: updateOne(),
     deleteOne: deleteOne(),
-    findById: findById(model)
+    getOne: getOne()
   };
 
   return { ...own, ...extraControllers };
