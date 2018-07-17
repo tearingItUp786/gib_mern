@@ -3,10 +3,8 @@ import mongoose from 'mongoose';
 
 const employeeSchema = new mongoose.Schema({
   username: {
-    type: mongoose.Schema.Types.String,
-    unqiue: true,
-    required: true,
-    dropDups: true
+    type: String,
+    index: { unique: true, dropDups: true }
   },
   name: {
     fname: {
