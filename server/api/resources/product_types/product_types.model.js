@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 const productTypesSchema = new mongoose.Schema({
   typeName: {
     type: String,
-    enum: ['Keg', 'Package']
+    enum: ['Keg', 'Package'],
+    required: true
   },
   volume: {
     type: mongoose.Schema.Types.ObjectId,
