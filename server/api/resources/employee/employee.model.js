@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import random from 'lodash/random';
+import bcrypt from 'bcrypt';
 
 const employeeSchema = new mongoose.Schema({
   username: {
@@ -23,12 +24,14 @@ const employeeSchema = new mongoose.Schema({
   },
   lastLoginDate: {
     type: Date
+  },
+  password: {
+    required: true,
+    type: String
   }
 });
 
-employeeSchema.pre('validate', async function handlePreSave() {
-  console.log(`pre validate`);
-
+employeeSchema.pre('validate', async function handlePreValidateEmployee() {
   if (!this.username) {
     this.username = `${this.name.lname}_${this.name.fname}`;
 
@@ -36,9 +39,27 @@ employeeSchema.pre('validate', async function handlePreSave() {
     while (doc) {
       const newUsername = this.username + random(0, 10000);
       this.username = newUsername;
+      /*eslint-disable*/
       doc = await this.constructor.findOne({ username: this.username });
+      /* eslint-enable */
     }
   }
 });
+
+employeeSchema.pre('save', async function handlePreSaveEmployee() {
+  const user = this;
+  if (!user.isModified('password')) {
+    return;
+  }
+
+  const salt = bcrypt.genSaltSync(10);
+  user.password = bcrypt.hashSync(user.password, salt);
+});
+
+employeeSchema.methods = {
+  authenticate(plainTextPassword) {
+    return bcrypt.compareSync(plainTextPassword, this.password);
+  }
+};
 
 export default mongoose.model('Employee', employeeSchema);
