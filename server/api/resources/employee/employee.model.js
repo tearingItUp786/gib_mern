@@ -32,6 +32,9 @@ const employeeSchema = new mongoose.Schema({
     enum: ['ADMIN', 'EMPLOYEE'],
     required: true,
     default: 'employee'
+  },
+  avatar: {
+    type: String
   }
 });
 
