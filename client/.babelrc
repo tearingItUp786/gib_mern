@@ -4,7 +4,6 @@
     "stage-2",
     "flow",
     "react",
-    "env",
     [
       "env",
       {
@@ -32,11 +31,5 @@
     "transform-object-rest-spread",
     "babel-plugin-transform-async-to-generator",
     "babel-plugin-styled-components"
-  ],
-  "env": {
-    "server": {
-      "presets": [["env", { "modules": false }], "stage-0"],
-      "plugins": ["transform-regenerator", "transform-runtime"]
-    }
-  }
+  ]
 }
