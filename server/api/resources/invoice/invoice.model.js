@@ -5,7 +5,7 @@ const invoiceSchema = new mongoose.Schema(
     type: {
       type: String,
       required: true,
-      enum: ['Inbound, Outbound']
+      enum: ['INBOUND', 'OUTBOUND']
     },
     carrier: {
       type: String,

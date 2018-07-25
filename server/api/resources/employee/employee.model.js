@@ -8,11 +8,11 @@ const employeeSchema = new mongoose.Schema({
   },
   name: {
     fname: {
-      type: mongoose.Schema.Types.String,
+      type: String,
       required: true
     },
     lname: {
-      type: mongoose.Schema.Types.String,
+      type: String,
       required: true
     }
   },
@@ -29,9 +29,10 @@ const employeeSchema = new mongoose.Schema({
     type: String
   },
   role: {
+    type: String,
     enum: ['ADMIN', 'EMPLOYEE'],
     required: true,
-    default: 'employee'
+    default: 'EMPLOYEE'
   },
   avatar: {
     type: String

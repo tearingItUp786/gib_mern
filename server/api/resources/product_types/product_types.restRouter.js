@@ -2,7 +2,7 @@ import express from 'express';
 import productTypesController from './product_types.controller';
 
 const productTypesRouter = express.Router();
-productTypesRouter.param('id', productTypesRouter.findById);
+productTypesRouter.param('id', productTypesController.findById);
 
 productTypesRouter
   .route('/')
