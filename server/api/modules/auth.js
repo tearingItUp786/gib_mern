@@ -32,7 +32,8 @@ const decodeToken = () => (req, res, next) => {
   checkToken(req, res, next);
 };
 
-const getFreshUser = () => (req, res, next) => Employee.findById(req.user.id)
+const getFreshUser = () => (req, res, next) =>
+  Employee.findById(req.user.id)
     .then(user => {
       if (!user) {
         // if no employee was found

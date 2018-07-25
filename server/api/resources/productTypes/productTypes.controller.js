@@ -1,4 +1,4 @@
-import productTypes from './product_types.model';
+import productTypes from './productTypes.model';
 import generateControllers from '../../modules/controllers';
 
 const addOne = model => (req, res, next) =>

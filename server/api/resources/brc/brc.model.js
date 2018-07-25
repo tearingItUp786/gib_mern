@@ -16,11 +16,11 @@ const brcSchema = new mongoose.Schema(
     },
     invoice: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Invoice'
+      ref: 'Invoices'
     },
     warehouse: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Warehouse'
+      ref: 'Warehouses'
     }
   },
   {
@@ -28,4 +28,4 @@ const brcSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Brc', brcSchema);
+export default mongoose.model('BRC', brcSchema);

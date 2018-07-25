@@ -1,5 +1,5 @@
 import express from 'express';
-import productTypesController from './product_types.controller';
+import productTypesController from './productTypes.controller';
 
 const productTypesRouter = express.Router();
 productTypesRouter.param('id', productTypesController.findById);
