@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import connectToDb from './db';
 import setupMiddleware from './middleware';
 import restRouter from './api/restRouter';
@@ -8,6 +9,7 @@ const app = express();
 setupMiddleware(app);
 connectToDb();
 
+app.use(cors());
 app.use('/signin', verifyUser, signIn);
 app.use('/api', protect, restRouter);
 
