@@ -1,0 +1,15 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/styled-components/*
+<PROJECT_ROOT>/node_modules/stylelint/*
+<PROJECT_ROOT>/flow-typed/npm/axios*
+
+[include]
+
+[libs]
+<PROJECT_ROOT>/flow-typed/
+
+[lints]
+
+[options]
+
+[strict]

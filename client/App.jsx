@@ -1,5 +1,9 @@
+// @flow
+
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
+import AsyncRoute from './AsyncRoute';
 
 class App extends Component {
   state = {};
@@ -10,9 +14,9 @@ class App extends Component {
 
   render() {
     return (
-      <code>
-        <pre>{JSON.stringify(this.state, null, 4)}</pre>
-      </code>
+      <BrowserRouter>
+        <Route path="/" component={props => <AsyncRoute props={props} loadingPromise={import('./Login')} />} />
+      </BrowserRouter>
     );
   }
 }
