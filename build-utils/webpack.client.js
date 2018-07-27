@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = () => ({
-  entry: './client/ClientApp.jsx',
+  entry: './client/js/ClientApp.jsx',
   devServer: {
     hot: true,
     port: 9000
