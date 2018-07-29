@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import Loading from './common/Loading';
 
 type AsyncRouteProps = {
   props: mixed,
@@ -31,7 +32,7 @@ class AsyncRoute extends Component<AsyncRouteProps, AsyncRouteState> {
     const { props } = this.props;
 
     if (!loaded) {
-      return <div>LOADING</div>;
+      return <Loading />;
     }
 
     // $FlowFixMe
