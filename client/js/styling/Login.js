@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
-export const LoginSection = styled.section`
+export const LoginSectionWrapper = styled.section`
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+`;
+
+export const LoginSection = styled.article`
   width: 100%;
-  max-width: 1000px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   background-color: ${props => props.theme.mainColor};
