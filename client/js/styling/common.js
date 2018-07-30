@@ -1,5 +1,3 @@
-// @flow
-
 import styled, { injectGlobal } from 'styled-components';
 import CreatedLabel from '../common/Label';
 

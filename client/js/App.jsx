@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from './styling/common';
 import AsyncRoute from './AsyncRoute';
@@ -9,7 +9,14 @@ import AsyncRoute from './AsyncRoute';
 const App = () => (
   <ThemeProvider theme={defaultTheme}>
     <BrowserRouter>
-      <Route path="/" component={props => <AsyncRoute props={props} loadingPromise={import('./Login')} />} />
+      <Switch>
+        <Route exact path="/" component={props => <AsyncRoute props={props} loadingPromise={import('./Login')} />} />
+        <Route
+          exact
+          path="/dashboard"
+          component={props => <AsyncRoute props={props} loadingPromise={import('./components/Dashboard')} />}
+        />
+      </Switch>
     </BrowserRouter>
   </ThemeProvider>
 );

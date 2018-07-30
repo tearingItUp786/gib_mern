@@ -4,11 +4,17 @@ import { signIn } from './helpers/authHelper';
 import { FieldSet, Label, Input, SubmitButton } from './styling/common';
 import { LoginSection, LoginImage, LoginForm, LoginSectionWrapper } from './styling/Login';
 
-const Login = () => {
+type LoginProps = {
+  history: RouterHistory
+};
+
+const Login = (props: LoginProps) => {
   /* $FlowFixMe */
   const username = React.createRef();
   /* $FlowFixMe */
   const password = React.createRef();
+
+  const { history } = props;
 
   async function handleSubmit(evt: SyntheticEvent<HTMLInputElement>) {
     evt.preventDefault();
@@ -19,7 +25,9 @@ const Login = () => {
         tokenName: 'gibToken'
       });
 
-      if (response) console.log('Success');
+      if (response) {
+        history.push('./dashboard');
+      }
     } catch (err) {
       console.log(err.response.data);
     }

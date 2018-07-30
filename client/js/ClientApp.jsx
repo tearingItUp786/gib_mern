@@ -11,6 +11,7 @@ renderApp(App);
 
 if (module.hot) {
   module.hot.accept('./App', () => {
+    /*eslint-disable*/
     const NextRootContainer = require('./App').default;
     renderApp(NextRootContainer);
   });

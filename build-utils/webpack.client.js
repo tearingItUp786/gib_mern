@@ -5,6 +5,7 @@ module.exports = () => ({
   entry: './client/js/ClientApp.jsx',
   devServer: {
     hot: true,
+    historyApiFallback: true,
     port: 9000
   },
   resolve: {
