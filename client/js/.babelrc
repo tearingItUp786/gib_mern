@@ -2,7 +2,7 @@
   "presets": [
     "stage-2",
     "flow",
-    "react",
+    "vue",
     [
       "env",
       {
@@ -24,7 +24,6 @@
         "moduleName": "babel-runtime"
       }
     ],
-    "react-hot-loader/babel",
     "babel-plugin-syntax-dynamic-import",
     "babel-plugin-dynamic-import-webpack",
     "babel-plugin-transform-class-properties",

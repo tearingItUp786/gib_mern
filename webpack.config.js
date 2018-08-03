@@ -16,7 +16,7 @@ module.exports = ({ mode, side } = { mode: 'development', side: 'client' }) =>
       module: {
         rules: [
           {
-            test: /\.jsx?$/,
+            test: /\.js$/,
             use: 'babel-loader',
             exclude: '/node_modules/'
           }
