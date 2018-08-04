@@ -1,13 +1,10 @@
 {
-  "extends": ["plugin:flowtype/recommended", "airbnb", "prettier", "plugin:vue/essential"],
+  "extends": ["plugin:flowtype/recommended", "prettier", "plugin:vue/essential"],
   "plugins": ["flowtype", "prettier"],
-  "parser": "babel-eslint",
   "parserOptions": {
+    "parser": "babel-eslint",
     "ecmaVersion": 2016,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "sourceType": "module"
   },
   "env": {
     "es6": true,
@@ -16,26 +13,6 @@
     "jest": true
   },
   "rules": {
-    "linebreak-style": 0,
-    "flowtype/no-types-missing-file-annotation": 0,
-    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["to", "hrefLeft", "hrefRight"],
-        "aspects": ["noHref", "invalidHref", "preferButton"]
-      }
-    ],
-    "jsx-a11y/label-has-for": [
-      2,
-      {
-        "required": {
-          "every": ["id"]
-        }
-      }
-    ],
-    "no-return-assign": 0,
-    "react/destructuring-assignment": [true, { "extensions": [".jsx"] }]
+    "linebreak-style": 0
   }
 }

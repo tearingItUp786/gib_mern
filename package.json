@@ -8,7 +8,7 @@
     "dboff": "killall mongod",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"{server,client}/**/*.{js,vue}\"",
     "flow": "flow",
-    "lint": "eslint **/*.{js,jsx} --quiet",
+    "lint": "eslint \"**/*.{js,vue}\" --quiet",
     "webpack": "webpack --require dotenv/config",
     "clean": "shx rm -rf ./dist",
     "prod": "npm run webpack -- --env.mode production",
