@@ -14,7 +14,7 @@
     "prod:server": "npm run prod -- --env.side server",
     "dev": "npm run webpack -- --env.mode development",
     "dev:db": "mongod",
-    "dev:client": "webpack-dev-server --hot --env.side client --env.mode development",
+    "dev:client": "webpack-dev-server --open --hot --env.side client --env.mode development",
     "dev:server": "npm run dev -- --env.side server",
     "lint": "eslint \"{build-utils,server,client}/**/*.{js,vue}\" --quiet",
     "lint:fix": "npm run lint -- --fix"
