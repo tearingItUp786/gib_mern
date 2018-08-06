@@ -8,7 +8,11 @@ const axiosInstance = axios.create({
 
 // at sign in, api server requires a username and password
 // tokenName is used to set jwt in local storage.
-export async function signIn({ username, password, tokenName }: SignInArgsType) {
+export async function signIn({
+  username,
+  password,
+  tokenName
+}: SignInArgsType) {
   const response = await axiosInstance.post('signin', { username, password });
   const gibToken = response.data.token;
   localStorage.setItem(tokenName, gibToken);

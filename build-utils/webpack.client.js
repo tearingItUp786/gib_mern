@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = () => ({
   entry: './client/js/app.js',
@@ -19,9 +20,23 @@ module.exports = () => ({
         use: 'vue-loader',
         exclude: /node_modules/
       },
+      // {
+      //   test: /\.css$/,
+      //   use: ['vue-style-loader', 'css-loader']
+      // }
       {
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              minimize: true
+            }
+          },
+          'postcss-loader'
+        ]
       }
     ]
   },
@@ -32,6 +47,9 @@ module.exports = () => ({
       title: 'GIB MERN',
       // Load a custom template (lodash by default see the FAQ for details)
       template: './client/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
     })
   ],
   output: {

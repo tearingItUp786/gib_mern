@@ -6,7 +6,8 @@ const APP_SECRET = process.env.APP_SECRET || 'secret_token';
 const EXPIRE_TIME = process.env.EXPIRE_TIME || '30d';
 const checkToken = expressJwt({ secret: APP_SECRET });
 
-const signToken = id => jwt.sign({ id }, APP_SECRET, { expiresIn: EXPIRE_TIME });
+const signToken = id =>
+  jwt.sign({ id }, APP_SECRET, { expiresIn: EXPIRE_TIME });
 
 export const signIn = (req, res) => {
   // the middleware verify user
