@@ -30,8 +30,8 @@ import { signIn } from '../helpers/authHelper.js';
 export default {
   data() {
     return {
-      username: '',
-      password: '',
+      username: 'Bains_t',
+      password: 'testPass',
       isSubmitted: false
     };
   },
@@ -41,7 +41,8 @@ export default {
       const { username, password } = this;
 
       try {
-        const response = await signIn({ username, password });
+        await signIn({ username, password });
+        this.$router.push('/dashboard');
       } catch (error) {
         console.log(error);
       }

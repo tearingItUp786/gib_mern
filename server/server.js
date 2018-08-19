@@ -11,7 +11,7 @@ connectToDb();
 
 app.use(cors());
 app.use('/signin', verifyUser, signIn);
-app.use('/api', protect, restRouter);
+app.use('/api', restRouter);
 
 app.all('*', (req, res) => {
   res.json({ ok: true });
