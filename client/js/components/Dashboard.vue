@@ -15,8 +15,6 @@ export default {
     };
   },
   async mounted() {
-    console.log('I have just mounted');
-
     try {
       const data = await getProducts();
       this.products = data;

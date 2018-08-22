@@ -26,10 +26,10 @@ export async function getAllEmployees() {
 // make the assumption that if the user has the token
 // that they are logged in
 // the local storage is only avaiable on the domain so this is safe enough for our purposes
-export function isLoggedIn(tokenName: string) {
+export function isLoggedIn(tokenName: string = TOKEN_NAME) {
   return localStorage.getItem(tokenName);
 }
 
-export function signOut(tokenName: string) {
+export function signOut(tokenName: string = TOKEN_NAME) {
   return localStorage.removeItem(tokenName);
 }

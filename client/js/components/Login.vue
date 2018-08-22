@@ -42,7 +42,8 @@ export default {
 
       try {
         await signIn({ username, password });
-        this.$router.push('/dashboard');
+        console.log('push');
+        this.$router.push('/admin');
       } catch (error) {
         console.log(error);
       }
