@@ -46,7 +46,8 @@ module.exports = () => ({
     new HtmlWebpackPlugin({
       title: 'GIB MERN',
       // Load a custom template (lodash by default see the FAQ for details)
-      template: './client/index.html'
+      template: './client/index.html',
+      favicon: './client/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css'

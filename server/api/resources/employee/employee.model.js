@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const employeeSchema = new mongoose.Schema({
   username: {
     type: String,
-    index: { unique: true, dropDups: true }
+    required: true
   },
   name: {
     fname: {
@@ -38,6 +38,8 @@ const employeeSchema = new mongoose.Schema({
     type: String
   }
 });
+
+employeeSchema.index({ username: 1 }, { unique: true });
 
 employeeSchema.pre('save', async function handlePreSaveEmployee() {
   const user = this;

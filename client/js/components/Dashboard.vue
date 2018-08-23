@@ -1,18 +1,26 @@
 <template>
   <div>
     <h1>Dashboard</h1>
-    <code>{{ JSON.stringify(products, null, 4) }}</code>
+    <div class="container mx-auto">
+      <productcard v-for="product in products" :key="product.id" :name="product.name" :image-url="product.image">
+      </productcard>
+    </div>
   </div>
 </template>
 
 <script>
+/* @flow */
 import { getProducts } from '../helpers/api.js';
+import Productcard from './Productcard.vue';
 
 export default {
   data() {
     return {
       products: null
     };
+  },
+  components: {
+    Productcard
   },
   async mounted() {
     try {

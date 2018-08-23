@@ -10,12 +10,12 @@ const addOne = model => (req, res, next) =>
         const requestVolume = req.body.volume;
         // if we have a doc, check if the specified volume in the request
         // already exists in the array of volumes
-        if (doc.volume.indexOf(requestVolume) > -1) {
+        if (doc.volumesAvailable.indexOf(requestVolume) > -1) {
           res.status(422).send('Product type with this volume already exists');
 
           // if we don't have the volume in the doc then we add it and then save the doc
         } else {
-          doc.volume.push(requestVolume);
+          doc.volumesAvailable.push(requestVolume);
           doc.save().then(updatedDoc => res.status(201).json(updatedDoc));
         }
       } else {

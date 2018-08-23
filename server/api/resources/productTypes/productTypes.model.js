@@ -5,7 +5,7 @@ const productTypesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  volume: [
+  volumesAvailable: [
     {
       type: String,
       required: true

@@ -23,6 +23,10 @@ const brcSchema = new mongoose.Schema(
     warehouse: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Warehouses'
+    },
+    product: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Products'
     }
   },
   {
