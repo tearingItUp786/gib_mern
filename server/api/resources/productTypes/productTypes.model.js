@@ -13,4 +13,6 @@ const productTypesSchema = new mongoose.Schema({
   ]
 });
 
+productTypesSchema.index({ typeName: 1 }, { unique: true });
+
 export default mongoose.model('ProductType', productTypesSchema);
