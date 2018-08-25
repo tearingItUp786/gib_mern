@@ -5,12 +5,12 @@ const productTypesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  volumesAvailable: [
+  volumes: [
     {
-      type: String,
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Volume'
     }
   ]
 });
 
-export default mongoose.model('ProductTypes', productTypesSchema);
+export default mongoose.model('ProductType', productTypesSchema);

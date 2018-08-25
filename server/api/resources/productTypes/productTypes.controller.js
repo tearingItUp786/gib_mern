@@ -1,31 +1,38 @@
+import { merge } from 'lodash';
+import mongoose from 'mongoose';
 import productTypes from './productTypes.model';
 import generateControllers from '../../modules/controllers';
 
-const addOne = model => (req, res, next) =>
-  // first check if we have a typeName with the same as the request in our database
+const getAll = model => (req, res, next) => {
   model
-    .findOne({ typeName: req.body.typeName })
-    .then(doc => {
-      if (doc) {
-        const requestVolume = req.body.volume;
-        // if we have a doc, check if the specified volume in the request
-        // already exists in the array of volumes
-        if (doc.volumesAvailable.indexOf(requestVolume) > -1) {
-          res.status(422).send('Product type with this volume already exists');
-
-          // if we don't have the volume in the doc then we add it and then save the doc
-        } else {
-          doc.volumesAvailable.push(requestVolume);
-          doc.save().then(updatedDoc => res.status(201).json(updatedDoc));
-        }
-      } else {
-        model.create(req.body).then(addedDoc => res.status(201).json(addedDoc));
-      }
-    })
+    .find({})
+    .populate('volumes')
+    .exec()
+    .then(docs => res.json(docs))
     .catch(err => next(err));
-
-const overRides = {
-  addOne: addOne(productTypes)
 };
 
-export default generateControllers(productTypes, overRides);
+const updateOne = () => (req, res, next) => {
+  merge(req.docFromId, req.body);
+
+  // attempt a conversion from the strings passed in to be object ids
+  req.docFromId.volumes = req.body.volumes.map(item =>
+    mongoose.Types.ObjectId(item)
+  );
+
+  console.log('doc from id', req.docFromId);
+
+  req.docFromId
+    .save()
+    .then(doc => {
+      res.status(201).json(doc);
+    })
+    .catch(error => next(error));
+};
+
+const overRide = {
+  getAll: getAll(productTypes),
+  updateOne: updateOne()
+};
+
+export default generateControllers(productTypes, overRide);

@@ -27,6 +27,10 @@ const brcSchema = new mongoose.Schema(
     product: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Products'
+    },
+    volume: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Volumes'
     }
   },
   {

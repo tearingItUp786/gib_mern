@@ -52,7 +52,9 @@ const addOne = model => (req, res, next) =>
 const updateOne = () => (req, res, next) =>
   basicControllers
     .updateOne(req.docFromId, req.body)
-    .then(doc => res.status(201).json(doc))
+    .then(doc => {
+      res.status(201).json(doc);
+    })
     .catch(error => next(error));
 
 const deleteOne = () => (req, res, next) =>
