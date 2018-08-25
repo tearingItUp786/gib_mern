@@ -4,8 +4,7 @@ const brcSchema = new mongoose.Schema(
   {
     brc: {
       type: Number,
-      required: true,
-      index: { unique: true, dropDups: true }
+      required: true
     },
     date: {
       type: Date,
@@ -18,25 +17,35 @@ const brcSchema = new mongoose.Schema(
     },
     invoice: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Invoices'
+      ref: 'Invoice',
+      required: true
     },
     warehouse: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Warehouses'
+      ref: 'Warehouse',
+      required: true
     },
     product: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Products'
+      ref: 'Product',
+      required: true
     },
     volume: {
+      type: String,
+      required: true
+    },
+    productType: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Volumes'
+      ref: 'ProductType',
+      required: true
     }
   },
   {
     timestamps: true
   }
 );
+
+brcSchema.index({ brc: 1 }, { unique: true });
 
 brcSchema.pre('validate', async function handlePreBrcValidate() {
   if (!this.dateCode) {

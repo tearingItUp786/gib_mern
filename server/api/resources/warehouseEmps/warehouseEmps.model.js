@@ -12,4 +12,4 @@ const warehouseempsSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('WarehouseEmps', warehouseempsSchema);
+export default mongoose.model('WarehouseEmp', warehouseempsSchema);
