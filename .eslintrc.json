@@ -1,6 +1,6 @@
 {
-  "extends": ["plugin:flowtype/recommended", "plugin:vue/essential", "prettier"],
-  "plugins": ["flowtype", "prettier"],
+  "extends": ["plugin:vue/essential", "prettier"],
+  "plugins": ["prettier"],
   "parserOptions": {
     "parser": "babel-eslint",
     "ecmaVersion": 2016,

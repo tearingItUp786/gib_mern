@@ -1,7 +1,6 @@
 {
   "presets": [
     "stage-2",
-    "flow",
     "vue",
     [
       "env",

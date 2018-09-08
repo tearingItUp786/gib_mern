@@ -24,30 +24,29 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
 import { signIn } from '../helpers/authHelper.js';
 
-export default {
-  data() {
-    return {
-      username: 'Bains_t',
-      password: 'testPass',
-      isSubmitted: false
-    };
-  },
-  methods: {
-    async handleFormSubmit() {
-      console.log('the form was submitted');
-      const { username, password } = this;
+@Component({})
+class Login extends Vue {
+  username = 'Bains_t';
+  password = 'testPass';
+  isSubmitted = false;
 
-      try {
-        await signIn({ username, password });
-        console.log('push');
-        this.$router.push('/admin');
-      } catch (error) {
-        console.log(error);
-      }
+  async handleFormSubmit() {
+    console.log('form was sumbitted');
+    const { username, password } = this;
+    console.log(username, password);
+    try {
+      await signIn({ username, password });
+      console.log('push');
+      this.$router.push('/admin');
+    } catch (error) {
+      console.log(error);
     }
   }
-};
+}
+
+export default Login;
 </script>
