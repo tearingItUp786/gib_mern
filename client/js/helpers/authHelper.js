@@ -1,4 +1,3 @@
-// @flow
 import axios from 'axios';
 
 const API_URI = process.env.API_URI || 'http://localhost:3000/';
@@ -9,7 +8,7 @@ const axiosInstance = axios.create({
 
 // at sign in, api server requires a username and password
 // tokenName is used to set jwt in local storage.
-export async function signIn({ username, password }: SignInArgsType) {
+export async function signIn({ username, password }) {
   const response = await axiosInstance.post('signin', { username, password });
   const gibToken = response.data.token;
 
@@ -26,10 +25,10 @@ export async function getAllEmployees() {
 // make the assumption that if the user has the token
 // that they are logged in
 // the local storage is only avaiable on the domain so this is safe enough for our purposes
-export function isLoggedIn(tokenName: string = TOKEN_NAME) {
+export function isLoggedIn(tokenName = TOKEN_NAME) {
   return localStorage.getItem(tokenName);
 }
 
-export function signOut(tokenName: string = TOKEN_NAME) {
+export function signOut(tokenName = TOKEN_NAME) {
   return localStorage.removeItem(tokenName);
 }

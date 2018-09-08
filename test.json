@@ -1,0 +1,259 @@
+[
+  {
+      "_id": "5b84c67c1b30d3e78dc2421c",
+      "brc": 12,
+      "date": "2018-12-25T18:55:00.000Z",
+      "invoice": {
+          "_id": "5b81b124d3c09d2e1f63308b",
+          "type": "INBOUND",
+          "carrier": "BDL",
+          "shipper": "Ricky",
+          "referenceNumber": 213600,
+          "date": "2018-08-25T19:42:28.654Z",
+          "createdAt": "2018-08-25T19:42:28.655Z",
+          "updatedAt": "2018-08-25T19:42:28.655Z",
+          "__v": 0
+      },
+      "warehouse": {
+          "_id": "5b81a6c963879d1e0f4628dc",
+          "address": {
+              "country": "Canada",
+              "province": "Alberta",
+              "city": "North Delta",
+              "postalCode": "V4C 5Z9",
+              "street": "116 B Street",
+              "unitNumber": "8864"
+          },
+          "__v": 0
+      },
+      "product": {
+          "_id": "5b81a41c63879d1e0f4628da",
+          "name": "Honey lager",
+          "description": "So good that Winnie the Pooh would love it",
+          "image": "https://via.placeholder.com/250x250",
+          "createdAt": "2018-08-25T18:46:52.796Z",
+          "updatedAt": "2018-08-25T18:46:52.796Z",
+          "__v": 0
+      },
+      "volume": "50 L",
+      "quantity": 16,
+      "productType": {
+          "_id": "5b81886e2b3d0819c8ad2833",
+          "volumes": [
+              "5b81884d2b3d0819c8ad2831"
+          ],
+          "typeName": "Keg",
+          "__v": 0
+      },
+      "dateCode": "A",
+      "createdAt": "2018-08-28T03:50:20.985Z",
+      "updatedAt": "2018-08-28T05:00:48.546Z",
+      "__v": 0
+  },
+  {
+      "_id": "5b84d54d1b30d3e78dc2421d",
+      "brc": 123,
+      "date": "2018-01-25T18:55:00.000Z",
+      "invoice": {
+          "_id": "5b81b124d3c09d2e1f63308b",
+          "type": "INBOUND",
+          "carrier": "BDL",
+          "shipper": "Ricky",
+          "referenceNumber": 213600,
+          "date": "2018-08-25T19:42:28.654Z",
+          "createdAt": "2018-08-25T19:42:28.655Z",
+          "updatedAt": "2018-08-25T19:42:28.655Z",
+          "__v": 0
+      },
+      "warehouse": {
+          "_id": "5b81a6c963879d1e0f4628dc",
+          "address": {
+              "country": "Canada",
+              "province": "Alberta",
+              "city": "North Delta",
+              "postalCode": "V4C 5Z9",
+              "street": "116 B Street",
+              "unitNumber": "8864"
+          },
+          "__v": 0
+      },
+      "product": {
+          "_id": "5b81a41c63879d1e0f4628da",
+          "name": "Honey lager",
+          "description": "So good that Winnie the Pooh would love it",
+          "image": "https://via.placeholder.com/250x250",
+          "createdAt": "2018-08-25T18:46:52.796Z",
+          "updatedAt": "2018-08-25T18:46:52.796Z",
+          "__v": 0
+      },
+      "volume": "50 L",
+      "quantity": 244,
+      "productType": {
+          "_id": "5b81886e2b3d0819c8ad2833",
+          "volumes": [
+              "5b81884d2b3d0819c8ad2831"
+          ],
+          "typeName": "Keg",
+          "__v": 0
+      },
+      "dateCode": "A",
+      "createdAt": "2018-08-28T04:53:33.086Z",
+      "updatedAt": "2018-08-28T04:53:33.086Z",
+      "__v": 0
+  },
+  {
+      "_id": "5b84d55b1b30d3e78dc2421e",
+      "brc": 125,
+      "date": "2018-09-25T17:55:00.000Z",
+      "invoice": {
+          "_id": "5b81b124d3c09d2e1f63308b",
+          "type": "INBOUND",
+          "carrier": "BDL",
+          "shipper": "Ricky",
+          "referenceNumber": 213600,
+          "date": "2018-08-25T19:42:28.654Z",
+          "createdAt": "2018-08-25T19:42:28.655Z",
+          "updatedAt": "2018-08-25T19:42:28.655Z",
+          "__v": 0
+      },
+      "warehouse": {
+          "_id": "5b81a6c963879d1e0f4628dc",
+          "address": {
+              "country": "Canada",
+              "province": "Alberta",
+              "city": "North Delta",
+              "postalCode": "V4C 5Z9",
+              "street": "116 B Street",
+              "unitNumber": "8864"
+          },
+          "__v": 0
+      },
+      "product": {
+          "_id": "5b81a41c63879d1e0f4628da",
+          "name": "Honey lager",
+          "description": "So good that Winnie the Pooh would love it",
+          "image": "https://via.placeholder.com/250x250",
+          "createdAt": "2018-08-25T18:46:52.796Z",
+          "updatedAt": "2018-08-25T18:46:52.796Z",
+          "__v": 0
+      },
+      "volume": "50 L",
+      "quantity": 16,
+      "productType": {
+          "_id": "5b81886e2b3d0819c8ad2833",
+          "volumes": [
+              "5b81884d2b3d0819c8ad2831"
+          ],
+          "typeName": "Keg",
+          "__v": 0
+      },
+      "dateCode": "J",
+      "createdAt": "2018-08-28T04:53:47.285Z",
+      "updatedAt": "2018-08-28T04:53:47.285Z",
+      "__v": 0
+  },
+  {
+      "_id": "5b84c61d1b30d3e78dc24219",
+      "brc": 786,
+      "date": "2018-07-25T17:55:00.000Z",
+      "invoice": {
+          "_id": "5b81b124d3c09d2e1f63308b",
+          "type": "INBOUND",
+          "carrier": "BDL",
+          "shipper": "Ricky",
+          "referenceNumber": 213600,
+          "date": "2018-08-25T19:42:28.654Z",
+          "createdAt": "2018-08-25T19:42:28.655Z",
+          "updatedAt": "2018-08-25T19:42:28.655Z",
+          "__v": 0
+      },
+      "warehouse": {
+          "_id": "5b81a6c963879d1e0f4628dc",
+          "address": {
+              "country": "Canada",
+              "province": "Alberta",
+              "city": "North Delta",
+              "postalCode": "V4C 5Z9",
+              "street": "116 B Street",
+              "unitNumber": "8864"
+          },
+          "__v": 0
+      },
+      "product": {
+          "_id": "5b81a41c63879d1e0f4628da",
+          "name": "Honey lager",
+          "description": "So good that Winnie the Pooh would love it",
+          "image": "https://via.placeholder.com/250x250",
+          "createdAt": "2018-08-25T18:46:52.796Z",
+          "updatedAt": "2018-08-25T18:46:52.796Z",
+          "__v": 0
+      },
+      "volume": "6x4 flat",
+      "quantity": 24,
+      "productType": {
+          "_id": "5b81b0a4d3c09d2e1f63308a",
+          "volumes": [
+              "5b81b09ad3c09d2e1f633089",
+              "5b84c17a512c4adbad2c758c"
+          ],
+          "typeName": "Package",
+          "__v": 1
+      },
+      "dateCode": "H",
+      "createdAt": "2018-08-28T03:48:45.499Z",
+      "updatedAt": "2018-08-28T03:48:45.499Z",
+      "__v": 0
+  },
+  {
+      "_id": "5b84c6351b30d3e78dc2421a",
+      "brc": 1,
+      "date": "2018-08-25T17:55:00.000Z",
+      "invoice": {
+          "_id": "5b81b124d3c09d2e1f63308b",
+          "type": "INBOUND",
+          "carrier": "BDL",
+          "shipper": "Ricky",
+          "referenceNumber": 213600,
+          "date": "2018-08-25T19:42:28.654Z",
+          "createdAt": "2018-08-25T19:42:28.655Z",
+          "updatedAt": "2018-08-25T19:42:28.655Z",
+          "__v": 0
+      },
+      "warehouse": {
+          "_id": "5b81a6c963879d1e0f4628dc",
+          "address": {
+              "country": "Canada",
+              "province": "Alberta",
+              "city": "North Delta",
+              "postalCode": "V4C 5Z9",
+              "street": "116 B Street",
+              "unitNumber": "8864"
+          },
+          "__v": 0
+      },
+      "product": {
+          "_id": "5b81a41c63879d1e0f4628da",
+          "name": "Honey lager",
+          "description": "So good that Winnie the Pooh would love it",
+          "image": "https://via.placeholder.com/250x250",
+          "createdAt": "2018-08-25T18:46:52.796Z",
+          "updatedAt": "2018-08-25T18:46:52.796Z",
+          "__v": 0
+      },
+      "volume": "6x4 flat",
+      "quantity": 244,
+      "productType": {
+          "_id": "5b81b0a4d3c09d2e1f63308a",
+          "volumes": [
+              "5b81b09ad3c09d2e1f633089",
+              "5b84c17a512c4adbad2c758c"
+          ],
+          "typeName": "Package",
+          "__v": 1
+      },
+      "dateCode": "I",
+      "createdAt": "2018-08-28T03:49:09.628Z",
+      "updatedAt": "2018-08-28T03:49:09.628Z",
+      "__v": 0
+  }
+]

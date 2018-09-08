@@ -15,6 +15,10 @@ const brcSchema = new mongoose.Schema(
       enum: ['A', 'B', 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'K', 'L'],
       required: true
     },
+    quantity: {
+      type: Number,
+      required: true
+    },
     invoice: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Invoice',
@@ -45,8 +49,6 @@ const brcSchema = new mongoose.Schema(
   }
 );
 
-brcSchema.index({ brc: 1 }, { unique: true });
-
 brcSchema.pre('validate', async function handlePreBrcValidate() {
   if (!this.dateCode) {
     // this long ass chain is to get the enumvalues defined above.
@@ -55,5 +57,11 @@ brcSchema.pre('validate', async function handlePreBrcValidate() {
     this.dateCode = dateArray[dateArraySpot];
   }
 });
+
+brcSchema.pre('update', async function handlePreUpdate() {
+  console.log('Pre update');
+});
+
+brcSchema.index({ brc: 1 }, { unique: true });
 
 export default mongoose.model('BRC', brcSchema);

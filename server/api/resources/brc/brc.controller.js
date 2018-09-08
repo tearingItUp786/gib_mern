@@ -29,7 +29,7 @@ const getAll = model => (req, res, next) => {
   const orderBySorts = createOrderBySortObject(req.query);
 
   // reduce the objects created by orderbysortobjects to be just one object
-  const reducedObjects = orderBySorts.reduce((accum, currVal) => {
+  var reducedObjects = orderBySorts.reduce((accum, currVal) => {
     const key = Object.keys(currVal)[0];
     const value = Object.values(currVal)[0];
     if (key && value) {
@@ -38,6 +38,14 @@ const getAll = model => (req, res, next) => {
     }
     return accum;
   }, {});
+
+  // if the sort object is empty, set the default sort to just be by product.name
+  if (
+    Object.keys(reducedObjects).length === 0 &&
+    reducedObjects.constructor === Object
+  ) {
+    reducedObjects = { 'product.name': 1 };
+  }
 
   model
     .aggregate([
