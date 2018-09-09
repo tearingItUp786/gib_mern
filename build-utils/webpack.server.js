@@ -41,6 +41,9 @@ module.exports = (mode = 'development') => ({
   ...getWebpackServerConfig(mode),
   devtool: 'sourcemap',
   target: 'node',
+  watchOptions: {
+    poll: true
+  },
   node: {
     __filename: true,
     __dirname: true

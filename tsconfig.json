@@ -9,6 +9,7 @@
       "moduleResolution": "node",
       "target": "es5",
       "experimentalDecorators": true,
+      "allowJs": true,
       "lib": [
         "es2015",
         "dom"

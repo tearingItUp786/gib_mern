@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
-
-const volumeSchmea = new mongoose.Schema({
+import { deleteModel } from '../../../db';
+const modelName = 'Volume';
+deleteModel(modelName);
+const volumeSchema = new mongoose.Schema({
   volume: {
     type: String,
     required: true
   }
 });
 
-volumeSchmea.index({ volume: 1 }, { unique: true });
+volumeSchema.index({ volume: 1 }, { unique: true });
 
-export default mongoose.model('Volume', volumeSchmea);
+export default mongoose.model(modelName, volumeSchema);

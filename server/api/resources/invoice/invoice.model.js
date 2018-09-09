@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
-
+import { deleteModel } from '../../../db';
+const modelName = 'Invoice';
+deleteModel(modelName);
 const invoiceSchema = new mongoose.Schema(
   {
     type: {
@@ -30,4 +32,4 @@ const invoiceSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Invoice', invoiceSchema);
+export default mongoose.model(modelName, invoiceSchema);

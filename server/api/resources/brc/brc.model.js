@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import { deleteModel } from '../../../db';
+const modelName = 'BRC';
+deleteModel(modelName);
 
 const brcSchema = new mongoose.Schema(
   {
@@ -12,7 +15,7 @@ const brcSchema = new mongoose.Schema(
     },
     dateCode: {
       type: String,
-      enum: ['A', 'B', 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'K', 'L'],
+      enum: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'],
       required: true
     },
     quantity: {
@@ -52,6 +55,7 @@ const brcSchema = new mongoose.Schema(
 brcSchema.pre('validate', async function handlePreBrcValidate() {
   if (!this.dateCode) {
     // this long ass chain is to get the enumvalues defined above.
+    // it's handy
     const dateArray = this.constructor.schema.path('dateCode').enumValues;
     const dateArraySpot = this.date.getMonth();
     this.dateCode = dateArray[dateArraySpot];
@@ -64,4 +68,4 @@ brcSchema.pre('update', async function handlePreUpdate() {
 
 brcSchema.index({ brc: 1 }, { unique: true });
 
-export default mongoose.model('BRC', brcSchema);
+export default mongoose.model(modelName, brcSchema);

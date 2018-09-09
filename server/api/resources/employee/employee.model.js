@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
-
+import { deleteModel } from '../../../db';
+const modelName = 'Employee';
+deleteModel(modelName);
 const employeeSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -57,4 +59,4 @@ employeeSchema.methods = {
   }
 };
 
-export default mongoose.model('Employee', employeeSchema);
+export default mongoose.model(modelName, employeeSchema);

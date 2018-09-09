@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
-
+import { deleteModel } from '../../../db';
+const modelName = 'Warehouse';
+deleteModel(modelName);
 const warehouseSchema = new mongoose.Schema({
   address: {
     country: {
@@ -49,4 +51,4 @@ const warehouseSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('Warehouse', warehouseSchema);
+export default mongoose.model(modelName, warehouseSchema);

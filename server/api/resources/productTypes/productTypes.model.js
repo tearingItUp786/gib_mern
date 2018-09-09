@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
-
+import { deleteModel } from '../../../db';
+const modelName = 'ProductType';
+deleteModel(modelName);
 const productTypesSchema = new mongoose.Schema({
   typeName: {
     type: String,
@@ -15,4 +17,4 @@ const productTypesSchema = new mongoose.Schema({
 
 productTypesSchema.index({ typeName: 1 }, { unique: true });
 
-export default mongoose.model('ProductType', productTypesSchema);
+export default mongoose.model(modelName, productTypesSchema);
