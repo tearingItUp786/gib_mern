@@ -1,11 +1,11 @@
 <template>
-  <router-view></router-view>
+  <router-view />
 </template>;
 
 <script>
 import '../styles/index.css';
 
 export default {
-  name: 'app'
+  name: 'App'
 };
 </script>

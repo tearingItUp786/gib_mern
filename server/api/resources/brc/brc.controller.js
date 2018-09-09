@@ -116,11 +116,6 @@ const getAll = model => (req, res, next) => {
           foreignField: '_id',
           as: 'productType.volumes'
         }
-      },
-      {
-        $project: {
-          document: '$$ROOT'
-        }
       }
     ])
     .then(docs => res.status(201).json(docs))

@@ -27,7 +27,6 @@
     "babel-plugin-dynamic-import-webpack",
     "babel-plugin-transform-class-properties",
     "transform-object-rest-spread",
-    "babel-plugin-transform-async-to-generator",
-    "babel-plugin-styled-components"
+    "babel-plugin-transform-async-to-generator"
   ]
 }
