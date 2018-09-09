@@ -64,6 +64,7 @@ brcSchema.pre('validate', async function handlePreBrcValidate() {
 
 brcSchema.pre('update', async function handlePreUpdate() {
   console.log('Pre update');
+  console.log(this.productType);
 });
 
 brcSchema.index({ brc: 1 }, { unique: true });
