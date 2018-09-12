@@ -63,3 +63,14 @@ export interface VolumesItem {
   volume: string;
   __v: number;
 }
+
+export interface ProductCardProps {
+  _id: string;
+  name: string;
+  image: string;
+  brc: number;
+  dateCode: string;
+  typeName: string;
+  volume: string;
+  quantity: number;
+}
