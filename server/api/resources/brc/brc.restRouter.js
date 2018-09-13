@@ -2,6 +2,7 @@ import express from 'express';
 import brcController from './brc.controller';
 
 const brcRouter = express.Router();
+const oldestBRCRouter = express.Router();
 brcRouter.param('id', brcController.findById);
 
 brcRouter
@@ -15,4 +16,6 @@ brcRouter
   .put(brcController.updateOne)
   .delete(brcController.deleteOne);
 
-export default brcRouter;
+oldestBRCRouter.route('/').get(brcController.getOldestBRCSArray);
+
+export { brcRouter, oldestBRCRouter };

@@ -124,7 +124,6 @@ const getAll = model => (req, res, next) => {
 
 const addOne = model => (req, res, next) => {
   const { volume, productType } = req.body;
-  console.log(volume, productType);
   productTypeModel
     .findById(productType)
     .populate('volumes')
@@ -142,10 +141,100 @@ const addOne = model => (req, res, next) => {
     .catch(err => next(err));
 };
 
+const getOldestBRCSArray = model => (req, res, next) => {
+  model
+    .aggregate([
+      {
+        $lookup: {
+          from: 'products',
+          localField: 'product',
+          foreignField: '_id',
+          as: 'product'
+        }
+      },
+      { $unwind: '$product' },
+      {
+        $lookup: {
+          from: 'warehouses',
+          localField: 'warehouse',
+          foreignField: '_id',
+          as: 'warehouse'
+        }
+      },
+      { $unwind: '$warehouse' },
+      {
+        $lookup: {
+          from: 'invoices',
+          localField: 'invoice',
+          foreignField: '_id',
+          as: 'invoice'
+        }
+      },
+      { $unwind: '$invoice' },
+      {
+        $lookup: {
+          from: 'producttypes',
+          localField: 'productType',
+          foreignField: '_id',
+          as: 'productType'
+        }
+      },
+      { $unwind: '$productType' },
+      {
+        $lookup: {
+          from: 'volumes',
+          localField: 'productType.volumes',
+          foreignField: '_id',
+          as: 'productType.volumes'
+        }
+      },
+      {
+        $group: {
+          _id: '$product.name',
+          brcs: {
+            $push: {
+              brcId: '$_id',
+              volume: '$volume',
+              dateCode: '$dateCode'
+            }
+          }
+        }
+      }
+    ])
+    .then(docs => {
+      // if the brc has the same volume,
+      // check to see if the date code is less
+      const brcsArray = docs.map((curDoc, index) => {
+        const docCopy = { ...curDoc };
+        const newBrcs = docCopy.brcs.reduce((accum, val) => {
+          // volume already exists in this array
+          const matchingVol = accum.find(
+            accumVal => accumVal.volume === val.volume
+          );
+          if (matchingVol) {
+            if (matchingVol.dateCode > val.dateCode) {
+              accum[accum.indexOf(matchingVol)] = val;
+            }
+          } else {
+            accum.push(val);
+          }
+          return accum;
+        }, []);
+
+        docCopy.brcs = newBrcs;
+        return docCopy;
+      });
+
+      return brcsArray;
+    })
+    .then(docs => res.send(docs));
+};
+
 const overRide = {
   getAll: getAll(brcModel),
   getOne: getOne(brcModel),
-  addOne: addOne(brcModel)
+  addOne: addOne(brcModel),
+  getOldestBRCSArray: getOldestBRCSArray(brcModel)
 };
 
 export default generateControllers(brcModel, overRide);
