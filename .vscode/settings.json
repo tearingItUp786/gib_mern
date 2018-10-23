@@ -1,2 +1,4 @@
 {
+  "css.validate": false,
+  "vetur.validation.style": false
 }

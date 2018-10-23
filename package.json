@@ -15,6 +15,7 @@
     "dev:db": "mongod",
     "dev:client": "webpack-dev-server --open --hot --env.side client --env.mode development",
     "dev:server": "npm run dev -- --env.side server",
+    "dev:all": "npm-run-all --parallel dev:db dev:server dev:client",
     "lint": "eslint -c \"./.eslintrc.json\" \"{build-utils,server,client}/**/*.{js,vue}\" --quiet",
     "lint:fix": "npm run lint -- --fix"
   },

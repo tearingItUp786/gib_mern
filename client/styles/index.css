@@ -1,3 +1,45 @@
 @tailwind preflight;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: calc(
+    16px + (20 - 16) * ((100vw - 400px) / (1600 - 300))
+  ) !
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.1rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+  font-size: calc(
+    18px + (26 - 18) * ((100vw - 400px) / (1600 - 300))
+  ) !important;
+}
+
+h2 {
+  font-size: calc(
+    16px + (24 - 16) * ((100vw - 400px) / (1600 - 300))
+  ) !important;
+}
+
+h3 {
+  font-size: calc(
+    16px + (22 - 16) * ((100vw - 400px) / (1600 - 300))
+  ) !important ;
+}
+
+h4 {
+  font-size: calc(
+    16px + (20 - 16) * ((100vw - 400px) / (1600 - 300))
+  ) !important;
+}

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Dashboard</h1>
     <div class="container mx-auto">
       <product-card 
         v-for="product in productCardProps" 
